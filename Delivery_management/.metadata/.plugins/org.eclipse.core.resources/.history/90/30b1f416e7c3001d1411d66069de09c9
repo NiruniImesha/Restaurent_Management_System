@@ -1,0 +1,22 @@
+package com.mtit.deliverysubscriber;
+
+import com.mtit.deliverypublisher.DeliveryPublish;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
+public class DeliverySubscriberActivator implements BundleActivator {
+
+	ServiceReference serviceReference;
+
+	public void start(BundleContext context) throws Exception {
+		System.out.println("Start subscriber service");
+		serviceReference = context.getServiceReference(DeliveryPublish.class.getName()); //refer previously registered delivery service 
+		
+	}
+
+	public void stop(BundleContext context) throws Exception {
+		
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.mtit.deliverypublisher;
+
+public interface DeliveryPublish {
+	
+	public String publishService();
+
+}
