@@ -29,7 +29,7 @@
    </p>
    
    <p> - Sign-off -
-   <img src="https://user-images.githubusercontent.com/88665593/226516142-b630f5d5-8af9-451e-a8cd-dca99b766596.png" ></img>
+   <img src="https://user-images.githubusercontent.com/88665593/226521980-61286825-bada-4da6-827c-b22d157ea6a6.png" ></img>
    </p>
   </ul>
 </ol>
