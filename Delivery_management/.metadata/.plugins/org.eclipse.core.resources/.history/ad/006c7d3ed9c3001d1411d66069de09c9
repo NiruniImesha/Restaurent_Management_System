@@ -1,0 +1,5 @@
+package com.mtit.deliverypublisher;
+
+public interface DeliveryPublish {
+
+}

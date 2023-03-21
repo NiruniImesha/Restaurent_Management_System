@@ -1,0 +1,15 @@
+package com.mtit.deliverypublisher;
+
+public interface DeliveryPublish {
+	
+	public String publishService();
+	
+	public void selectPaymentmethod();
+	
+	public void selectOrderCount();
+	
+	public void getUserInput();
+	
+	public void generateDeliveryCharges();
+
+}

@@ -1,0 +1,246 @@
+package com.mtit.deliverypublisher;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class DeliveryPublishImpl implements DeliveryPublish{
+	
+	private HashMap<String, Double> cardDiscountRate = new HashMap<String, Double>();
+	private HashMap<String, Double> additionalCharges = new HashMap<String, Double>();
+	private String paymentType;
+	private String deliveryTime;
+	private String orderCount;
+	private String address;
+	private float distance;
+	private int cardNo;
+	private int cvv;
+	private double unitDistanceRate;
+	private double deliveryCharge;
+
+	//constructor
+	public DeliveryPublishImpl() {
+		
+		cardDiscountRate.put("0 - 1", 0.00);
+		cardDiscountRate.put("2 - 4", 0.05);
+		cardDiscountRate.put("over 5", 0.075);
+
+		additionalCharges.put("peak", 200.00);
+		additionalCharges.put("cod", 20.00);
+		
+		unitDistanceRate = 100.00;
+		
+	}
+
+	//getters
+	public String getPaymentType() { return paymentType; }
+
+	public String getDeliveryTime() { return deliveryTime; }
+
+	public String getOrderCount() { return orderCount; }
+	
+	public String getAddress() { return address; }
+
+	public float getDistance() { return distance; }
+
+	public double getDistanceRate() { return unitDistanceRate; }
+
+	public double getDeliveryCharge() { return deliveryCharge; }
+	
+	public int getCardNo() { return cardNo; }
+
+	public int getCvv() { return cvv; }
+
+
+	@Override
+	public String publishService() {
+		// TODO Auto-generated method stub
+		return "Execute the pubish service of DeliveryPublisher";
+	}
+	
+	@Override
+	public String getUserInput() {
+
+		while(true) {
+			
+			//get user address
+			System.out.print("Enter your Address :  ");
+			Scanner sc1 = new Scanner(System.in);
+			address = sc1.next();
+			
+			return address;
+			
+		}
+		
+	}
+
+	@Override
+	public void selectPaymentmethod() { //method to select payment type
+		
+		System.out.println( "\nSelect payment method . \n" );
+		System.out.println("1 - Cash on delivery ");
+		System.out.println("2 - Online card payments " + "\n");
+		System.out.print("Select payment method       : ");
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+			 while (true) {
+				
+				int selectedMethod = sc.nextInt();
+				
+				switch (selectedMethod) {
+				case 1:
+					this.paymentType = "cod";
+					break;
+					
+				case 2:
+					this.paymentType = "card";
+					break;
+					
+				default:
+					System.out.println("Invalid Entry. Please re-select the payment method.");
+					break;
+				}
+
+				if (this.paymentType != null)
+					break;
+				
+			 } 
+			
+		} catch (InputMismatchException e) {
+			System.out.println("\nInvalid payment method.\n");
+		}
+		
+	}
+	
+	@Override
+	public void selectOrderCount() {
+		System.out.println( "\nSelect order count . \n" );
+		System.out.println("1 - Order count ( 0 - 1 ) ");
+		System.out.println("2 - Order count ( 2 - 4 ) " + "\n");
+		System.out.println("3 - Order count ( over 4 ) " + "\n");
+		System.out.print("Enter the item count you order  : ");
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+			 while (true) {
+				
+				int selectedCount = sc.nextInt();
+				
+				switch (selectedCount) {
+				case 1:
+					this.orderCount = "0 - 1";
+					break;
+					
+				case 2:
+					this.orderCount = "2 - 4";
+					break;
+					
+				case 3:
+					this.orderCount = "over 4";
+					break;
+					
+				default:
+					System.out.println("Invalid Entry. Please re-select the order count.");
+					break;
+				}
+				
+				if (this.orderCount != null)
+					break;
+				
+			 } 
+			
+		} catch (InputMismatchException e) {
+			System.out.println("\nInvalid order count.\n");
+		}
+		
+	}
+	
+	
+
+	@Override
+	public String getTimeCategory(LocalDateTime dateTime) {
+		
+		
+		// Define the peak and off-peak time ranges
+        LocalDateTime peakStart = LocalDateTime.of(dateTime.toLocalDate(), LocalTime.of(7, 0));
+        LocalDateTime peakEnd = LocalDateTime.of(dateTime.toLocalDate(), LocalTime.of(9, 0));
+        LocalDateTime offPeakStart = LocalDateTime.of(dateTime.toLocalDate(), LocalTime.of(12, 0));
+        LocalDateTime offPeakEnd = LocalDateTime.of(dateTime.toLocalDate(), LocalTime.of(14, 0));
+
+        // Check if the input time falls within the peak or off-peak time ranges
+        if (dateTime.isAfter(peakStart) && dateTime.isBefore(peakEnd)) {
+            deliveryTime = "Peak";
+        } else if (dateTime.isAfter(offPeakStart) && dateTime.isBefore(offPeakEnd)) {
+        	deliveryTime ="Off-Peak";
+        } else {
+        	deliveryTime ="Regular";
+        }
+        
+        return deliveryTime;
+	}	
+	
+	@Override
+	public void generateDeliveryCharges() {
+	
+		double distanceRate = 0.0;
+		double discount = 0.0;
+		double codCharges = 0.0; 
+		double peakTimeCharges = 0.0;
+		
+		// Get user input for delivery address
+		String userInputs = getUserInput();
+		
+		// Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+
+        // Determine whether it is a peak or off-peak time
+        String timeCategory = getTimeCategory(now);
+        
+    	System.out.print("\nEnter the distance(KM) :  ");
+    	Scanner sc2 = new Scanner(System.in);
+    	distance = sc2.nextFloat();
+    	
+    	//calculate rate according to the distance
+    	if(distance <= 2) {
+    		distanceRate = 0;
+    	}else {
+    		distanceRate = (distance-2)*unitDistanceRate;
+    	}
+    	
+    	//calculate discount rate according to the order items
+    	if(orderCount == "0 - 1") {
+    		discount = cardDiscountRate.get("0 - 1");
+    		
+    	} else if (orderCount == "2 - 4") {
+    		discount = cardDiscountRate.get("2 - 4");
+    		
+    	} else {
+    		discount = cardDiscountRate.get("over 4");
+    		
+    	}
+    	
+    	//calculate additional charges
+    	if(paymentType == "cod") {
+    		codCharges = additionalCharges.get("cod");
+    		
+    	} else if (deliveryTime == "Peak") {
+    		peakTimeCharges = additionalCharges.get("Peak");
+    		
+    	}
+    	
+    	
+    	//calculate delivery charges
+    	deliveryCharge = (distanceRate + codCharges + peakTimeCharges);
+    	deliveryCharge = deliveryCharge - (deliveryCharge * discount);
+	
+		
+	}
+
+
+
+}
