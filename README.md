@@ -20,17 +20,13 @@
   <li> Delivery Management</li>
   <br></br>
   
-  <p> Generate delivery charges</p>
-  <img src=""></img>
-  <br></br>
-  
-  <p> Check eligibility discounts</p>
-  <img src=""></img>
-  <br></br>
-  
-  <p> Sign-off</p>
-  <img src=""></img>
-  <br></br>
+  <table>
+  <tr>
+    <th>Generate delivery charges</th>
+    <th>Check eligibility discounts</th>
+    <th>Sign-off</th>
+  <tr/>
+  </table>
   
 </ol>
 
