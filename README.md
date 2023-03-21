@@ -14,11 +14,11 @@
   <br></br>
   
   <li><b>project-frontend</b> - </li>
-  <br></br>
+  <br>
  
   <ul type="square">
   <li> Delivery Management</li>
-  <br></br>
+  <br>
   
    <p> - Generate delivery charges -
    <img src="https://user-images.githubusercontent.com/88665593/226521268-2b928ec3-d0dd-44d3-a714-4b8a23e4108f.png" ></img> 
@@ -28,7 +28,7 @@
    <img src="https://user-images.githubusercontent.com/88665593/226521845-86e9b66e-95b3-47ed-9d94-06fa507fb48d.png" ></img> 
    </p>
    
-   <p> - Sign-off -
+   <p> - Sign-off - <br>
    <img src="https://user-images.githubusercontent.com/88665593/226521980-61286825-bada-4da6-827c-b22d157ea6a6.png" ></img>
    </p>
   </ul>
