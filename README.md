@@ -20,17 +20,19 @@
   <li> Delivery Management</li>
   <br></br>
   
-  <div class="row"> 
-  <div class="column"> Generate delivery charges </div>
-  <div class="column"> Check eligibility discounts </div>
-  <div class="column"> Sign-off </div>
-  </div>
+  <table>
+  <tr>
+    <th> Generate delivery charges </th>
+    <th> Check eligibility discounts </th>
+    <th> Sign-off </th>
+  </tr>
   
-  <div class="row"> 
-  <div class="column"> <img src="" ></img> </div>
-  <div class="column"> <img src="" ></img> </div>
-  <div class="column"> <img src="" ></img> </div>
-  </div>
+  <tr>
+    <td> <img src="" ></img> </td>
+    <td> <img src="" ></img> </td>
+    <td> <img src="" ></img> </td>
+  </tr>
+  </table>
   
 </ol>
 
