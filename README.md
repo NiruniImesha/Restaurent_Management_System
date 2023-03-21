@@ -21,15 +21,13 @@
 
   <p> Generate delivery charges</p>
   <img src=""></img>
-  <br></br>
   
   <p> Check eligibility discounts</p>
   <img src=""></img>
-  <br></br>
   
   <p> Sign-off</p>
   <img src=""></img>
-  <br></br>
+  
 </ol>
 
 
