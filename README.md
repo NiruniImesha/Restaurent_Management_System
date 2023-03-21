@@ -25,7 +25,7 @@
    </p>
    
    <p> - Check eligibility discounts -
-   <img src="https://user-images.githubusercontent.com/88665593/226516139-3a231cca-6ec9-4be7-ade5-0abce881408a.png" ></img> 
+   <img src="https://user-images.githubusercontent.com/88665593/226521845-86e9b66e-95b3-47ed-9d94-06fa507fb48d.png" ></img> 
    </p>
    
    <p> - Sign-off -
