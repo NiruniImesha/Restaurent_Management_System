@@ -14,20 +14,20 @@
   <br></br>
   
   <li><b>project-frontend</b> - </li>
+  
   <ul type="square">
-  <li> Generate delivery charges</li>
+  <li> Delivery Management</li>
+  <br></br>
+
+  <p> Generate delivery charges</p>
   <img src=""></img>
   <br></br>
   
-  <li> Generate delivery charges</li>
+  <p> Check eligibility discounts</p>
   <img src=""></img>
   <br></br>
   
-  <li> Check eligibility discounts</li>
-  <img src=""></img>
-  <br></br>
-  
-  <li> Sign-off</li>
+  <p> Sign-off</p>
   <img src=""></img>
   <br></br>
 </ol>
