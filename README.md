@@ -13,7 +13,7 @@
   </ul>
   <br></br>
   
-  <li><b>project-frontend</b> - </li>
+  <li><b>Project-frontend</b> - </li>
   <br>
  
   <ul type="square">
