@@ -21,8 +21,7 @@
   <br></br>
   
    <p> - Generate delivery charges -
-   <img src="https://user-images.githubusercontent.com/88665593/226518036-2a2727df-4b99-42ce-b95f-e25f602ac8d6.png" ></img> 
-   <img src="https://user-images.githubusercontent.com/88665593/226516135-18570e39-ae00-44f5-b79d-56e10295fca3.png" ></img>
+   <img src="https://user-images.githubusercontent.com/88665593/226521268-2b928ec3-d0dd-44d3-a714-4b8a23e4108f.png" ></img> 
    </p>
    
    <p> - Check eligibility discounts -
